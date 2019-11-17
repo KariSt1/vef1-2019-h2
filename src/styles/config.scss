@@ -2,3 +2,16 @@ $max-width: 1200px;
 $gutter: 20px;
 $font-main: "Lora", "Times New Roman", serif;
 $font-header: "Roboto Mono", "Courier New", monospace;
+$transition: 300ms ease-in-out;
+
+@mixin row() {
+  display: flex;
+  margin-right: -($gutter *0.5);
+  margin-left: -($gutter *0.5);
+}
+
+@mixin columns($col: 1) {
+  width: ($col / 12 * 100) *1%;
+  padding-right: $gutter *0.5;
+  padding-left: $gutter *0.5;
+}
