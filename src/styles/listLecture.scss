@@ -1,0 +1,35 @@
+@import "config";
+
+.listLecture {
+  display: flex;
+  max-height: 100%;
+  flex-direction: column-reverse;
+  max-width: $max-width;
+  flex: 1;
+  background-color: #ccc;
+  margin-bottom: $gutter *2;
+
+  &__text {
+    padding: ($gutter *0.5) ($gutter *0.5);
+  }
+
+  &__title {
+    font-family: $font-header;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__category {
+    font-family: $font-header;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    display: flex;
+    flex: 1;
+    img {
+      width: 100%;
+    }
+  }
+}
