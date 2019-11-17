@@ -1,0 +1,35 @@
+@import "config";
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: $gutter *2;
+
+  &__button {
+    margin-right: $gutter;
+    margin-left: $gutter;
+    padding: ($gutter *0.5) $gutter;
+    font-family: $font-header;
+    font-size: 1.5rem; //24/16
+    font-weight: 700;
+    text-decoration: none;
+    border: 0;
+    border-radius: $gutter;
+    background-color: #ccc;
+    transition: background-color $transition;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #aaa;
+    }
+
+    &--active {
+      background-color: #2d2;
+
+      &:hover {
+        background-color: #1a1;
+      }
+    }
+  }
+}
