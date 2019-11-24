@@ -1,4 +1,5 @@
 import { el, empty } from './helpers';
+import { loadFinished } from './storage';
 
 export default class List {
   constructor() {
@@ -10,17 +11,14 @@ export default class List {
   getLectures() {
     fetch(this.url)
       .then((result) => {
-        if(!result.ok) {
+        if (!result.ok) {
           throw new Error('Villa þegar reynt var að ná í fyrirlestra');
         }
         return result.json();
       })
-      .then((data) => {
-        return this.getActiveLectures(data.lectures);
-      })
-      .then((data) => {
-        this.makeLectures(data);
-      })
+      .then(data => this.getFinishedLectures(data.lectures))
+      .then(data => this.getActiveLectures(data))
+      .then(data => this.makeLectures(data))
       .catch((error) => {
         console.error(error);
       });
@@ -55,13 +53,19 @@ export default class List {
     const category = el('h2', lecture.category);
     category.classList.add('listLecture__category');
 
-    const text = el('div', category,title);
+    const text = el('div', category, title);
     text.classList.add('listLecture__text');
 
-    //Bæta við ef búið er að klára fyrirlestur
-    //if(lecture.finished) {}
-    //const finished = el('div', '✓');
-    //finished.classList.add('listLecture__finished); }
+    const bottom = el('div', text);
+    bottom.classList.add('listLecture__bottom');
+
+    // Bæta við ef búið er að klára fyrirlestur
+    if (lecture.finished) {
+      const finished = el('div', '✓');
+      finished.classList.add('listLecture__finished');
+      bottom.appendChild(finished);
+    }
+
     const thumbnail = el('div');;
     thumbnail.classList.add('listLecture__image');
 
@@ -72,9 +76,9 @@ export default class List {
       thumbnail.appendChild(image);
     }
 
-    const item = el('a', text,thumbnail);
+    const item = el('a', bottom, thumbnail);
     item.classList.add('listLecture');
-    //item.setAttribute('href', ´fyrirlestur.html?slug=${lecture.slug}´);
+    item.setAttribute('href', `fyrirlestur.html?slug=${lecture.slug}`);
     return item;
   }
 
@@ -91,8 +95,16 @@ export default class List {
     this.showLectures(row);
   }
 
+  getFinishedLectures(data) {
+    const saved = loadFinished();
+    return data.map((i) => {
+      i.finished = saved.indexOf(i.slug) > -1; /* eslint-disable-line */
+      return i;
+    });
+  }
+
   toggleActiveButtons(e) {
-    const target = e.target;
+    const { target } = e;
 
     target.classList.toggle('buttons__button--active');
     this.getLectures();
