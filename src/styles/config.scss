@@ -4,6 +4,7 @@ $font-main: "Lora", "Times New Roman", serif;
 $font-header: "Roboto Mono", "Courier New", monospace;
 $transition: 300ms ease-in-out;
 
+// Föll fengið úr sýnilausn úr hópverkefni 1
 @mixin row() {
   display: flex;
   margin-right: -($gutter *0.5);
@@ -14,4 +15,8 @@ $transition: 300ms ease-in-out;
   width: ($col / 12 * 100) *1%;
   padding-right: $gutter *0.5;
   padding-left: $gutter *0.5;
+}
+
+@mixin offset-left($cols: 0) {
+  margin-left: ($cols/12 * 100) * 1%;
 }
