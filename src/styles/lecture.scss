@@ -1,0 +1,29 @@
+@import "config";
+
+.lecture {
+  padding-right: $gutter;
+  padding-left: $gutter;
+
+  &__container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+  &__row {
+    @include row();
+    flex-wrap: wrap;
+  }
+
+  &__content {
+    @include columns(12);
+    display: flex;
+    flex-direction: column;
+    //justify-content: flex-end;
+
+    @media (min-width: 800px) {
+      @include columns(8);
+      @include offset-left(2);
+    }
+    @media (min-width: $max-width) {
+    }
+  }
+}
