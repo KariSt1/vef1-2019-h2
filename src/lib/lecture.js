@@ -30,9 +30,11 @@ export default class Lecture {
       });
       newElement.appendChild(document.createTextNode(element.data));
     } else if (element.type === 'quote') {
-      const quote = el('p', element.data);
+      const quote = el('p');
+      quote.appendChild(document.createTextNode(element.data));
       quote.classList.add('element__quote');
-      const attribute = el('p', element.attribute);
+      const attribute = el('p');
+      attribute.appendChild(document.createTextNode(element.attribute));
       attribute.classList.add('element__attribute');
       newElement = el('blockquote', quote, attribute);
       newElement.classList.add('element__blockquote');
@@ -95,29 +97,29 @@ export default class Lecture {
     } else {
       finish = el('button', '✓ Fyrirlestur kláraður');
     }
-    finish.classList.add('lecture__finish');
+    finish.classList.add('footer__finish');
     if (isFinished) {
-      finish.classList.add('lecture__finish--finished');
+      finish.classList.add('footer__finish--finished');
     }
     finish.addEventListener('click', this.makeFinished.bind(this, slug));
     const back = el('a', 'Til baka');
-    back.classList.add('lecture__back');
+    back.classList.add('footer__back');
     back.setAttribute('href', '/');
     const footer = el('footer', finish, back);
-    footer.classList.add('lecture__footer');
+    footer.classList.add('footer');
     return footer;
   }
 
   makeFinished(slug, e) {
     const button = e.target;
-    if (button.classList.contains('lecture__finish--finished')) {
+    if (button.classList.contains('footer__finish--finished')) {
       button.textContent = 'Klára fyrirlestur';
       save(slug, true);
     } else {
       button.textContent = '✓ Fyrirlestur kláraður';
       save(slug, false);
     }
-    button.classList.toggle('lecture__finish--finished');
+    button.classList.toggle('footer__finish--finished');
   }
 
   isFinished(slug) {
