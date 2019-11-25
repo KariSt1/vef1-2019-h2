@@ -1,11 +1,27 @@
 @import "config";
 
 .footer {
-  &__finish {
+  display: flex;
+    margin-bottom: $gutter * 3;
+    font-family: $font-heading;
+    color: #000;
+    text-decoration: none;
+    flex-direction: column;
+    align-items: center;
 
+  &__finish {
+    display: inline-block;
+    margin-bottom: $gutter * 2;
+
+    font-family: $font-heading;
+    font-size: 1rem;
+    background: inherit;
+    border: 0;
   }
 
   &__back {
-    
+    font-family: $font-heading;
+    color: #000;
+    text-decoration: none;
   }
 }
