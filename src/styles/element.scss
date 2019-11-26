@@ -24,25 +24,36 @@
 
   &__text {
     margin-bottom: 1rem;
+    color: #000;
   }
 
   &--quote {
     margin-bottom: 2rem;
-  }
-
-  &__blockquote {
-    margin-bottom: 1rem;
-    padding: ($gutter *0.5) ($gutter *0.5);
-    width: 100%;
-    background-color: #ccc;
+    padding: $gutter;
+    margin-right: -$gutter;
+    margin-left: -$gutter;
+    background-color: #ccc;;
   }
 
   &__quote {
     margin-bottom: 1rem;
   }
+
+  &__image {
+    margin-bottom: 2rem;
+  }
   
-  &__attribute {
-    
+  &__list {
+    margin-bottom: 1rem;
+  }
+
+  &__listItem {
+    margin-bottom: $gutter;
+  }
+
+  &__code {
+    font-family: $font-header;
+    margin-bottom: 2rem;
   }
 
   &__heading {
