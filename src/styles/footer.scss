@@ -2,25 +2,28 @@
 
 .footer {
   display: flex;
-    margin-bottom: $gutter * 3;
-    font-family: $font-heading;
-    color: #000;
-    text-decoration: none;
-    flex-direction: column;
-    align-items: center;
+  margin-bottom: $gutter * 3;
+  font-family: $font-header;
+  color: #000;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: center;
 
   &__finish {
-    display: inline-block;
     margin-bottom: $gutter * 2;
-
-    font-family: $font-heading;
+    font-family: $font-header;
     font-size: 1rem;
-    background: inherit;
+    background: none;
     border: 0;
+    outline: none;
+
+    &--finished {
+      color: #2d2;
+    }
   }
 
   &__back {
-    font-family: $font-heading;
+    font-family: $font-header;
     color: #000;
     text-decoration: none;
   }
