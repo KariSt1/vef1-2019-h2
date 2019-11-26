@@ -78,7 +78,9 @@ export default class Lecture {
     title.classList.add('header__title');
     const header = el('header', text, title);
     header.classList.add('header');
-    header.style.background = `url(${data.image})`;
+    if (data.image) {
+      header.style.background = `url(${data.image})`;
+    }
     return header;
   }
 
