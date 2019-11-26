@@ -41,13 +41,14 @@ export default class Lecture {
       div.classList.add('element--quote');
     } else if (element.type === 'image') {
       const image = el('img');
-      image.classList.add('element__image');
+      image.classList.add('element__img');
       image.setAttribute('src', element.data);
       image.setAttribute('alt', element.caption);
       const caption = el('p');
       caption.classList.add('element__caption');
       caption.appendChild(document.createTextNode(element.caption));
       newElement = el('div', image, caption);
+      newElement.classList.add('element__image');
     } else if (element.type === 'heading') {
       newElement = el('h2');
       newElement.classList.add('element__heading');
