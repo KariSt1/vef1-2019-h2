@@ -2,17 +2,17 @@
 
 .listLecture {
   display: flex;
-  max-height: 100%;
-  flex-direction: column-reverse;
   max-width: $max-width;
-  flex: 1;
-  background-color: #ccc;
+  max-height: 100%;
   margin-bottom: $gutter *2;
   text-decoration: none;
+  flex-direction: column-reverse;
+  flex: 1;
+  background-color: #ccc;
 
   &__bottom {
-    padding: ($gutter *0.5) ($gutter *0.5);
     display: flex;
+    padding: ($gutter *0.5) ($gutter *0.5);
     align-items: center;
   }
 
@@ -41,7 +41,8 @@
   &__image {
     display: flex;
     flex: 1;
-    img {
+
+    img { /* stylelint-disable-line */
       width: 100%;
     }
   }

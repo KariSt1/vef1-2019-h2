@@ -27,7 +27,7 @@ export default class List {
   getActiveLectures(data) {
     const activeButtons = [];
     this.buttons.forEach((button) => {
-      if(button.classList.contains('buttons__button--active')) {
+      if (button.classList.contains('buttons__button--active')) {
         activeButtons.push(button.id);
       }
     });
@@ -37,10 +37,9 @@ export default class List {
   showLectures(...lectures) {
     empty(this.container);
     lectures.forEach((lecture) => {
-      if(typeof item === 'string') {
+      if (typeof item === 'string') {
         this.container.appendChild(document.createTextNode(lecture));
-      } 
-      else {
+      } else {
         this.container.appendChild(lecture);
       }
     });
@@ -66,10 +65,10 @@ export default class List {
       bottom.appendChild(finished);
     }
 
-    const thumbnail = el('div');;
+    const thumbnail = el('div');
     thumbnail.classList.add('listLecture__image');
 
-    if(lecture.thumbnail) {
+    if (lecture.thumbnail) {
       const image = el('img');
       image.setAttribute('src', lecture.thumbnail);
       image.setAttribute('alt', '');
@@ -87,7 +86,7 @@ export default class List {
       const col = el('div', this.createElement(lecture));
       col.classList.add('list__col');
       return col;
-    })
+    });
 
     const row = el('div', ...items);
     row.classList.add('list__row');

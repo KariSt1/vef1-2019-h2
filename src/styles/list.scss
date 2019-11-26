@@ -8,6 +8,7 @@
     max-width: $max-width;
     margin: 0 auto;
   }
+
   &__row {
     @include row();
     flex-wrap: wrap;

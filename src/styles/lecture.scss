@@ -9,12 +9,12 @@
     margin: 0 auto;
 
   }
+
   &__row {
     @include row();
     margin-bottom: $gutter*2;
     flex-wrap: wrap;
   }
-
 
   &__content {
     @include columns(12);
@@ -25,6 +25,5 @@
       @include columns(8);
       @include offset-left(2);
     }
-    
   }
 }

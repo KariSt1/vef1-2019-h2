@@ -2,24 +2,24 @@
 
 .buttons {
   display: flex;
+  margin-bottom: $gutter *2;
   justify-content: center;
   list-style: none;
-  margin-bottom: $gutter *2;
 
   &__button {
+    padding: ($gutter *0.5) $gutter;
     margin-right: $gutter;
     margin-left: $gutter;
-    padding: ($gutter *0.5) $gutter;
     font-family: $font-header;
     font-size: 1.5rem; //24/16
     font-weight: 700;
     color: #000;
     text-decoration: none;
+    cursor: pointer;
+    background-color: #ccc;
     border: 0;
     border-radius: $gutter;
-    background-color: #ccc;
     transition: background-color $transition;
-    cursor: pointer;
 
     &:hover {
       background-color: #aaa;
