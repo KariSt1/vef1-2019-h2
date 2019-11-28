@@ -32,7 +32,7 @@ Vefsíðunni er skipt niður í:
   * Forsíðu, html skjal fyrir hana er `index.html` og er staðsett í rót verkefnis.
   * Síðu fyrir fyrirlestrana, html skjal fyrir hana er `fyrirlestur.html` sem er einnig staðsett í rót verkefnis.
 
-__Útlit:__\n
+### Útlit:
   Í `styles` möppunni sem staðsett er í `src` möppunni er `styles.scss` skráin þar sem skráðar eru grunnupplýsingar og hún inniheldur einnig import fyrir allar hinar scss skránnar sem gerðar voru.
 Við skiptum ýmsum elementum síðunnar niður í sér scss skrár sem staðsettar eru í `styles` möppunni:
   * Í `config.scss` eru skilgreindar gunnstærðir og föll sem notuð eru í verkefninu.
@@ -40,14 +40,14 @@ Við skiptum ýmsum elementum síðunnar niður í sér scss skrár sem staðset
   * Fyrir `index.html` var gerð `list.scss`skrá,`buttons.scss`skrá og `listLecture.scss` skrá.
   * Fyrir `fyrirlestrar.html`voru gerðar skrárnar `element.scss`, `lecture.scss` og `footer.scss`.
 
-__Virkni:__\n
+### Virkni:
   Undir `src` möppunni er `index.js` skrá sem fylgist með þegar vefsíðunni er hlaðið upp og keyrir upp viðeigandi javascript eftir því hvort við erum á `fyrirlestur.html` eða `index.html`. Í `lib` möppunni sem staðsett er í `src` möppunni eru ýmsar javascript skrár staðsettar sem sjá um virkni vefsíðunnar.
   * Í `helpers.js` eru ýmis hjálparföll skilgreind sem nýtt eru í öðrum javascript skrám.
   * Í `lecture.js` er séð um að birta öll element sem eru skilgreind í viðeigandi fyrirlestri í `lecture.json` skránni á `fyrirlestur.html`. Einnig er takki skilgreindur sem ef ýtt er á hann er vistað í localStorage að fyrirlesturinn sé kláraður.
   * Í `list.js` er virknin fyrir `index.html` skilgreind. Þar eru takkar þar sem hægt er að filtera fyrirlestra eftir því af hvaða týpu þeir eru, þ.e. HTML, CSS eða JavaScript. Síðan eru takkar fyrir hvern fyrirlestur skilgreindir sem taka þig yfir á `fyrirlestur.html` fyrir þann fyrirlestur þegar smellt er á hann. Einnig er birt með tékkmarki hvort fyrirlestur hafi verið kláraður með því að sækja kláraða fyrirlestra í localStorage.
   * Í `storage.js` eru tvö foll sem vista fyrirlestur í localStorage og nær í alla fyrirlestra í localStorage.
 
-__Annað:__
+### Annað:
   * Í `img` möppunni eru allar myndir sem notaðar voru í verkefninu.
 
   * Í `package.json` skránni eru skilgreind script sem nota má til að keyra verkefnið ásamt því að hin ýmsu dependancies eru skilgreind. Í `node_modules` möppunni eru pakkarnir sem notaðir eru til að keyra verkefnið staðsettir.
