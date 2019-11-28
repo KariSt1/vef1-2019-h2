@@ -32,7 +32,7 @@ Vefsíðunni er skipt niður í:
   * Forsíðu, html skjal fyrir hana er `index.html` og er staðsett í rót verkefnis
   * Síðu fyrir fyrirlestrana, html skjal fyrir hana er `fyrirlestur.html` sem er einnig staðsett í rót verkefnis.
 
-__Útlit__: 
+__Útlit:__
   Í `styles` möppunni sem staðsett er í `src` möppunni er `styles.scss` skráin þar sem skráðar eru grunnupplýsingar og hún inniheldur einnig import fyrir allar hinar scss skránnar sem gerðar voru.
 Við skiptum ýmsum elementum síðunnar niður í sér scss skrár sem staðsettar eru í `styles` möppunni:
   * Í `config.scss` eru skilgreindar gunnstærðir og föll sem notuð eru í verkefninu.
@@ -40,10 +40,7 @@ Við skiptum ýmsum elementum síðunnar niður í sér scss skrár sem staðset
   * Fyrir `index.html` var gerð `list.scss`skrá,`buttons.scss`skrá og `listLecture.scss` skrá.
   * Fyrir `fyrirlestrar.html`voru gerðar skrárnar `element.scss`, `lecture.scss` og `footer.scss`.
 
-__Virkni__: 
-...
-
-__Annað__
+__Annað:__
   * Í `img` möppunni eru allar myndir sem notaðar voru í verkefninu.
 
   * Í `package.json` skránni eru skilgreind script sem nota má til að keyra verkefnið ásamt því að hin ýmsu dependancies eru skilgreind. Í `node_modules` möppunni eru pakkarnir sem notaðir eru til að keyra verkefnið staðsettir.
