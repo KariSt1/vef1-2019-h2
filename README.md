@@ -49,9 +49,7 @@ Við skiptum ýmsum elementum síðunnar niður í sér scss skrár sem staðset
 
 ### Annað:
   * Í `img` möppunni eru allar myndir sem notaðar voru í verkefninu.
-
   * Í `package.json` skránni eru skilgreind script sem nota má til að keyra verkefnið ásamt því að hin ýmsu dependancies eru skilgreind. Í `node_modules` möppunni eru pakkarnir sem notaðir eru til að keyra verkefnið staðsettir.
-
   * Í `lecture.json` eru allar upplýsingar um hvern fyrirlestur geymdar á json formi.
 
 ---
