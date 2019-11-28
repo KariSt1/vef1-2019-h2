@@ -1,6 +1,6 @@
 # Hópverkefni 2 í vefforritun 1
 ---
-__Hópur .., meðlimir:__
+__Hópameðlimir:__
   * Fannar Skúli Birgisson
   * Gunnar Páll Júlíusson
   * Kári Steinn Aðalsteinsson
@@ -12,11 +12,12 @@ Til að keyra verkefnið:
 npm install
 npm run dev
 ```
+Þegar þetta er keyrt þá er framleidd `dist` mappa þar sem búið er að þjappa saman öllum javascript skránum í `bundle.js` skrá og `bundle.js-map`. Einnig er búinn til css kóði fyrir allar scss skrárnar og er hann settur í `styles.css` skránna. Þessar skrár innihalda allar upplýsingar um útlit og virkni síðunnar.
 
-Til að linta verkefni:
+Til að linta verkefni, bæði fyrir javascript og scss:
 
 ```sh
-npm run lint-scss
+npm run test
 ```
 ---
 ## Lýsing á verkefni:
