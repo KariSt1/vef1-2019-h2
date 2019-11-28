@@ -2,8 +2,14 @@
 ---
 __Hópameðlimir:__
   * Fannar Skúli Birgisson
+    * Github notendanafn: fsb2
+    * HÍ notendanafn: fsb2
   * Gunnar Páll Júlíusson
+    * Github notendanafn: Gunnzter
+    * HÍ notendanafn: gpj7
   * Kári Steinn Aðalsteinsson
+    * Github notendanafn: KariSt1
+    * HÍ notendanafn: ksa13
 ---
 ## Uppsetning á verkefni:
 Til að keyra verkefnið:
