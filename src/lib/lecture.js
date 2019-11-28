@@ -9,75 +9,60 @@ export default class Lecture {
   }
 
   makeElement(element) {
-    const div = el('div');
-    div.classList.add('element');
+    const div = el('div', 'element');
     let newElement;
     if (element.type === 'youtube') {
-      newElement = el('iframe');
-      newElement.classList.add('element__youtube');
+      newElement = el('iframe', 'element__youtube');
       newElement.setAttribute('src', element.data);
       newElement.setAttribute('allowfullscreen', true);
       newElement.setAttribute('frameborder', 0);
       div.classList.add('element--youtube');
     } else if (element.type === 'text') {
-      newElement = el('div');
-      newElement.classList.add('element__texts');
+      newElement = el('div', 'element__texts');
       const paragraphs = element.data.split('\n');
       paragraphs.forEach((paragraph) => {
-        const text = el('p', paragraph);
-        text.classList.add('element__text');
+        const text = el('p', 'element__text', paragraph);
         newElement.appendChild(text);
       });
-      newElement.appendChild(document.createTextNode(element.data));
     } else if (element.type === 'quote') {
-      const quote = el('p');
-      quote.appendChild(document.createTextNode(element.data));
-      quote.classList.add('element__quote');
-      const attribute = el('p');
-      attribute.appendChild(document.createTextNode(element.attribute));
-      attribute.classList.add('element__attribute');
-      newElement = el('blockquote', quote, attribute);
-      newElement.classList.add('element__blockquote');
+      const quote = el('p', 'element__quote', element.data);
+      if(element.attribute) {
+        const attribute = el('p', 'element__attribute', element.attribute);
+        newElement = el('blockquote', 'element__blockquote', quote, attribute);
+      } else {
+        newElement = el('blockquote', 'element__blockquote', quote);
+      }
       div.classList.add('element--quote');
     } else if (element.type === 'image') {
-      const image = el('img');
-      image.classList.add('element__img');
+      const image = el('img', 'element__img');
       image.setAttribute('src', element.data);
-      image.setAttribute('alt', element.caption);
-      const caption = el('p');
-      caption.classList.add('element__caption');
-      caption.appendChild(document.createTextNode(element.caption));
-      newElement = el('div', image, caption);
-      newElement.classList.add('element__image');
+      if(element.caption) {
+        image.setAttribute('alt', element.caption);
+        const caption = el('p', 'element__caption', element.caption);
+        newElement = el('div', 'element__image', image, caption);
+      } else {
+        image.setAttribute('alt', '');
+        newElement = el('div', 'element__image', image);
+      }
     } else if (element.type === 'heading') {
-      newElement = el('h2');
-      newElement.classList.add('element__heading');
-      newElement.appendChild(document.createTextNode(element.data));
+      newElement = el('h2', 'element__heading', element.data);
     } else if (element.type === 'list') {
-      newElement = el('ul');
-      newElement.classList.add('element__list');
+      newElement = el('ul', 'element__list');
       element.data.forEach((listItem) => {
-        const item = el('li', document.createTextNode(listItem));
-        item.classList.add('element__listItem');
+        const item = el('li', 'element__listItem', listItem);
         newElement.appendChild(item);
       });
     } else {
-      newElement = el('pre', element.data);
-      newElement.classList.add('element__code');
+      newElement = el('pre', 'element__code', element.data);
     }
     div.appendChild(newElement);
     return div;
   }
 
   makeHeader(data) {
-    const text = el('p');
-    text.appendChild(document.createTextNode(data.category));
-    text.classList.add('header__text');
-    const title = el('h2');
-    title.appendChild(document.createTextNode(data.title));
-    title.classList.add('header__title');
-    const header = el('header', text, title);
-    header.classList.add('header');
+    const text = el('p', 'header__text', data.category);
+    const title = el('h2', 'header__title', data.title);
+    const header = el('header', 'header', text, title);
     if (data.image) {
       header.style.background = `url(${data.image})`;
     }
@@ -85,9 +70,8 @@ export default class Lecture {
   }
 
   makeContent(data) {
-    const content = el('div');
+    const content = el('div', 'lecture__content');
     data.content.forEach((element) => {
-      content.classList.add('lecture__content');
       content.appendChild(this.makeElement(element));
     });
     return content;
@@ -96,20 +80,17 @@ export default class Lecture {
   makeFooter(slug, isFinished) {
     let finish;
     if (!isFinished) {
-      finish = el('button', 'Klára fyrirlestur');
+      finish = el('button', 'footer__finish', 'Klára fyrirlestur');
     } else {
-      finish = el('button', '✓ Fyrirlestur kláraður');
+      finish = el('button', 'footer__finish', '✓ Fyrirlestur kláraður');
     }
-    finish.classList.add('footer__finish');
     if (isFinished) {
       finish.classList.add('footer__finish--finished');
     }
     finish.addEventListener('click', this.makeFinished.bind(this, slug));
-    const back = el('a', 'Til baka');
-    back.classList.add('footer__back');
+    const back = el('a', 'footer__back', 'Til baka');
     back.setAttribute('href', '/');
-    const footer = el('footer', finish, back);
-    footer.classList.add('footer');
+    const footer = el('footer', 'footer', finish, back);
     return footer;
   }
 
@@ -134,14 +115,11 @@ export default class Lecture {
   }
 
   displayLecture(data) {
-    const row = el('div');
-    row.classList.add('lecture__row');
+    const row = el('div', 'lecture__row');
     this.page.prepend(this.makeHeader(data));
     row.appendChild(this.makeContent(data));
     this.page.appendChild(this.makeFooter(data.slug, this.isFinished(data.slug)));
-    const container = el('div');
-    container.classList.add('lecture__container');
-    container.appendChild(row);
+    const container = el('div', 'lecture__container', row);
     this.section.appendChild(container);
   }
 

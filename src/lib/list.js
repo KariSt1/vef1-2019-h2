@@ -46,50 +46,40 @@ export default class List {
   }
 
   createElement(lecture) {
-    const title = el('p', lecture.title);
-    title.classList.add('listLecture__title');
+    const title = el('p', 'listLecture__title', lecture.title);
 
-    const category = el('h2', lecture.category);
-    category.classList.add('listLecture__category');
+    const category = el('h2', 'listLecture__category', lecture.category);
 
-    const text = el('div', category, title);
-    text.classList.add('listLecture__text');
+    const text = el('div', 'listLecture__text', category, title);
 
-    const bottom = el('div', text);
-    bottom.classList.add('listLecture__bottom');
+    const bottom = el('div', 'listLecture__bottom', text);
 
-    // Bæta við ef búið er að klára fyrirlestur
     if (lecture.finished) {
-      const finished = el('div', '✓');
-      finished.classList.add('listLecture__finished');
+      const finished = el('div', 'listLecture__finished', '✓');
       bottom.appendChild(finished);
     }
 
-    const thumbnail = el('div');
-    thumbnail.classList.add('listLecture__image');
+    const thumbnail = el('div', 'listLecture__image');
 
     if (lecture.thumbnail) {
-      const image = el('img');
+      const image = el('img', 'listLecture__img');
       image.setAttribute('src', lecture.thumbnail);
       image.setAttribute('alt', '');
       thumbnail.appendChild(image);
     }
 
-    const item = el('a', bottom, thumbnail);
-    item.classList.add('listLecture');
+    const item = el('a', 'listLecture', bottom, thumbnail);
     item.setAttribute('href', `fyrirlestur.html?slug=${lecture.slug}`);
     return item;
   }
 
   makeLectures(data) {
     const items = data.map((lecture) => {
-      const col = el('div', this.createElement(lecture));
-      col.classList.add('list__col');
+      const col = el('div', 'list__col', this.createElement(lecture));
       return col;
     });
 
-    const row = el('div', ...items);
-    row.classList.add('list__row');
+    const row = el('div', 'list__row', ...items);
 
     this.showLectures(row);
   }
