@@ -89,7 +89,7 @@ export default class Lecture {
     }
     finish.addEventListener('click', this.makeFinished.bind(this, slug));
     const back = el('a', 'footer__back', 'Til baka');
-    back.setAttribute('href', '/');
+    back.setAttribute('href', '.');
     const footer = el('footer', 'footer', finish, back);
     return footer;
   }
