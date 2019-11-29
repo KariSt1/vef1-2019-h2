@@ -26,7 +26,7 @@ export default class Lecture {
       });
     } else if (element.type === 'quote') {
       const quote = el('p', 'element__quote', element.data);
-      if(element.attribute) {
+      if (element.attribute) {
         const attribute = el('p', 'element__attribute', element.attribute);
         newElement = el('blockquote', 'element__blockquote', quote, attribute);
       } else {
@@ -36,7 +36,7 @@ export default class Lecture {
     } else if (element.type === 'image') {
       const image = el('img', 'element__img');
       image.setAttribute('src', element.data);
-      if(element.caption) {
+      if (element.caption) {
         image.setAttribute('alt', element.caption);
         const caption = el('p', 'element__caption', element.caption);
         newElement = el('div', 'element__image', image, caption);

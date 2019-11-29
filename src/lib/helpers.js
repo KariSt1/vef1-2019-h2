@@ -5,7 +5,7 @@ export function empty(element) {
 }
 
 // Fengið úr helper sýnidæmi úr fyrirlestri 10
-export function el(name, className,  ...children) {
+export function el(name, className, ...children) {
   const element = document.createElement(name);
   element.classList.add(className);
   for (const child of children) { /* eslint-disable-line */
